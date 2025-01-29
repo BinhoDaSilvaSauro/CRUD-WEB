@@ -111,8 +111,16 @@
     padding: 12px 20px; 
     text-align: left; 
     border-bottom: 1px solid #ddd; 
-    /* white-space: nowrap;  */
-    overflow: hidden; 
+    max-width: 200px; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.productTable td:nth-child(4) {
+    max-width: 200px; 
+    overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
 
@@ -125,6 +133,7 @@
 .productTable td:last-child {
     display: flex;
     justify-content: space-between;
+    min-width: 200px; 
 }
 
 .productTable tr:nth-child(even) {
