@@ -16,11 +16,11 @@ class Product {
 
     public function list(): mixed {
         $tabela = $this->getTabela();
-        $query = "SELECT * FROM {$tabela}";
+        $query = "SELECT * FROM {$tabela} WHERE PDT_USER = :id";
 
         try {
             $stmt = $this->conn->prepare($query);
-            $stmt->execute();
+            $stmt->execute(['id' => $_SESSION['id']]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: false;
         } catch (PDOException $e) {
             error_log('Erro ao verificar usuário no método ' . __METHOD__ . ': ' . $e->getMessage());
